@@ -1,4 +1,4 @@
-from src.translator import translate_content, extract #, CONTEXT
+from src.translator import translate_content #, CONTEXT
 from mock import patch
 
 def test_chinese():
@@ -29,14 +29,14 @@ def test_llm_gibberish_response(mocker):
     response1 = translate_content("Aquí está su primer ejemplo.")
     mocker.assert_called_with("Aquí está su primer ejemplo.", temperature=0.7, max_output_tokens=256)
     # mocker.assert_called_with([CONTEXT, "Aquí está su primer ejemplo."])
-    assert(response1 == extract(mocker.return_value.text))
+    assert(response1 == mocker.return_value.text)
 
     response2 = translate_content("DAFOEWGAIB WODFfjdskl aisdfow")
     mocker.assert_called_with("DAFOEWGAIB WODFfjdskl aisdfow", temperature=0.7, max_output_tokens=256)
     # mocker.assert_called_with([CONTEXT, "DAFOEWGAIB WODFfjdskl aisdfow"])
-    assert(response2 == translate_content(mocker.return_value.text))
+    assert(response2 == mocker.return_value.text)
 
     response3 = translate_content("ζͰէ۞ɯƨޝघටŧ𓂜꧈ໃ࿈Ϩɔȣפռ҂")
     mocker.assert_called_with("ζͰէ۞ɯƨޝघටŧ𓂜꧈ໃ࿈Ϩɔȣפռ҂", temperature=0.7, max_output_tokens=256)
     # mocker.assert_called_with([CONTEXT, "ζͰէ۞ɯƨޝघටŧ𓂜꧈ໃ࿈Ϩɔȣפռ҂"])
-    assert(response3 == extract(mocker.return_value.text))
+    assert(response3 == mocker.return_value.text)
