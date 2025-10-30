@@ -49,18 +49,12 @@ See the code in `src/translator.py` for the full list of hard-coded dummy transl
 
 # Integrating the translator service with NodeBB
 
-Now that you have a dummy translator service deployed, you can integrate it into NodeBB by allowing new posts to be translated at creation time and to display a "Translate" button for such posts. To save you the trouble, we are providing the code changes required for this UI. You need two sets of changes, in the back-end (NodeBB repo) and in the front-end (theme repo):
-
-1. https://github.com/CMU-313/NodeBB/compare/main...f25-p4
-2. https://github.com/CMU-313/nodebb-theme-harmony/compare/f24...f24-p4
+Now that you have a dummy translator service deployed, you can integrate it into NodeBB by allowing new posts to be translated at creation time and to display a "Translate" button for such posts. To save you the trouble, we are providing the code changes required for this UI. 
+https://github.com/CMU-313/NodeBB/pull/454
 
 You can merge this commit directly if you know how to set up a new remote and perform cherry picking; or you can just look at the diffs above and copy+paste the changes carefully into your own NodeBB repos. These are provided only as suggestions but you are welcome to do something else.
 
 ## Testing the integration
-
-In your project install/package.json file change the theme import to the local filepath: "nodebb-theme-harmony": "file:./nodebb-theme-harmony",
-
-### Note: this should be the install/package.json file, NOT the /package.json file
 
 Then redeploy NodeBB to your Linux VM using Docker. 
 
