@@ -22,8 +22,8 @@ This project includes a DevContainer configuration for a consistent development 
 This project uses [UV](https://github.com/astral-sh/uv) for fast Python package management.
 
 ```bash
-uv venv                            # Creates virtual environment
-uv pip install -r requirements.txt # Installs dependencies from requirements.txt
+uv init                             # Creates virtual environment
+uv add -r requirements.txt # Installs dependencies from requirements.txt
 ```
 
 Note: UV will automatically create a virtual environment in `.venv` and install the dependencies. You don't need to manually activate the virtual environment if you use `uv run` for the commands below.
