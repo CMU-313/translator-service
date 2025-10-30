@@ -76,11 +76,7 @@ Clicking the button reveals...
 Please replace `translate` method in `src/translator.py` with your LLM based
 implementation. The `translate` method takes a string `content` as input and
 returns a tuple `(bool, str)`, indicating if `content` is in English and
-the translated content if `content` is not in English.
-
-
-> [!WARNING]
-> Do not push your API key to your repository. You should use environment variables to store your API key.
+the translated content if `content` is not in English.  This should call out to your python service you developed.
 
 ## Handle responses from the LLM
 
