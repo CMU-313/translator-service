@@ -8,25 +8,35 @@ This repo contains a Python Flask web app that will perform live translations fo
 
 # Build and run locally
 
-```
-virtualenv .app                    # Create a virtual environment (do this just once in the directory)
-source .app/bin/activate           # Start virtual environment (do this every time you use a new terminal tab in this directory)
+## Step 1: Open in DevContainer (Recommended)
+
+This project includes a DevContainer configuration for a consistent development environment.
+
+1. Make sure you have Docker installed and running
+2. Open this repository in VS Code
+3. When prompted, click "Reopen in Container" (or use Command Palette: "Dev Containers: Reopen in Container")
+4. Wait for the container to build and start
+
+## Step 2: Installing Dependencies
+
+This project uses [UV](https://github.com/astral-sh/uv) for fast Python package management.
+
+```bash
+uv venv                            # Creates virtual environment
+uv pip install -r requirements.txt # Installs dependencies from requirements.txt
 ```
 
-## Installing Dependencies
-```
-pip install -r requirements.txt    # Do this just once. It will install `flask` and `pytest`
+Note: UV will automatically create a virtual environment in `.venv` and install the dependencies. You don't need to manually activate the virtual environment if you use `uv run` for the commands below.
+
+## Step 3: Run tests locally
+```bash
+uv run pytest                      # You should see the tests in test_translator.py run and pass successfully
 ```
 
-## Run tests locally
-```
-pytest                             # You should see the tests in test_translator.py run and pass successfully
-```
+## Step 4: Run the translator service locally
 
-## Run the translator service locally
-
-```
-flask run                          # Starts a web server on http://127.0.0.1:5000
+```bash
+uv run flask run                   # Starts a web server on http://127.0.0.1:5000
 ```
 
 Navigate to [http://127.0.0.1:5000/?content=Dies ist eine Nachricht auf Deutsch](http://127.0.0.1:5000/?content=Dies%20ist%20eine%20Nachricht%20auf%20Deutsch) and you should see the response JSON:
